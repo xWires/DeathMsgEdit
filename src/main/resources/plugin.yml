@@ -1,0 +1,11 @@
+name: DeathMsgEdit
+main: xyz.tangledwires.deathmsgedit.DeathMsgEditPlugin
+version: 0
+api-version: 1.20
+author: xWires
+commands:
+  deathmsgedit:
+    description: Manage DeathMsgEdit
+    usage: /deathmsgedit <reload>
+    permission: deathmsgadmin.admin
+    permission-message: You don't have permission.

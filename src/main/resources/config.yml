@@ -1,0 +1,60 @@
+messages:
+  BLOCK_EXPLOSION:
+  - '{victim} blew up'
+  CONTACT:
+  - '{victim} was pricked to death'
+  CRAMMING:
+  - '{victim} was squished too much'
+  DRAGON_BREATH:
+  - '{victim} was roasted in dragon''s breath'
+  DROWNING:
+  - '{victim} drowned'
+  DRYOUT:
+  - '{victim} died from dehydration'
+  ENTITY_ATTACK:
+  - '{victim} was slain by {attacker}'
+  ENTITY_EXPLOSION:
+  - '{victim} was blown up by {attacker}'
+  ENTITY_SWEEP_ATTACK:
+  - '{victim} was slain by {attacker}'
+  FALL:
+  - '{victim} hit the ground too hard'
+  FALLING_BLOCK:
+  - '{victim} was squashed by a falling block'
+  FIRE:
+  - '{victim} went up in flames'
+  FIRE_TICK:
+  - '{victim} burned to death'
+  FLY_INTO_WALL:
+  - '{victim} experienced kinetic energy'
+  FREEZE:
+  - '{victim} froze to death'
+  HOT_FLOOR:
+  - '{victim} discovered the floor was lava'
+  KILL:
+  - '{victim} was killed'
+  LAVA:
+  - '{victim} tried to swim in lava'
+  LIGHTNING:
+  - '{victim} was struck by lightning'
+  MAGIC:
+  - '{victim} was killed by magic'
+  MELTING:
+  - '{victim} burned to death'
+  PROJECTILE:
+  - '{victim} was shot by {attacker}'
+  SONIC_BOOM:
+  - '{victim} was was obliterated by a sonically-charged shriek'
+  STARVATION:
+  - '{victim} starved to death'
+  SUFFOCATION:
+  - '{victim} suffocated in a wall'
+  THORNS:
+  - '{victim} was killed while trying to hurt {attacker}'
+  VOID:
+  - '{victim} fell out of the world'
+  WITHER:
+  - '{victim} withered away'
+  WORLD_BORDER:
+  - '{victim} left the confines of this world'
+

@@ -14,7 +14,10 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
+import me.clip.placeholderapi.PlaceholderAPI;
+
 import net.md_5.bungee.api.ChatColor;
+
 import xyz.tangledwires.deathmsgedit.DeathMsgEditPlugin;
 
 public class ChangeDeathMessage implements Listener {
@@ -34,7 +37,11 @@ public class ChangeDeathMessage implements Listener {
             if (getKiller(event) != null) {
                 message = message.replace("{attacker}", getKiller(event).getName());
             }
-            event.setDeathMessage(ChatColor.translateAlternateColorCodes('&', message));
+            message = ChatColor.translateAlternateColorCodes('&', message);
+            if (plugin.placeholderApiEnabled) {
+                message = PlaceholderAPI.setPlaceholders(event.getEntity(), message);
+            }
+            event.setDeathMessage(message);
         }
     }
     public static Entity getKiller(EntityDeathEvent event) {

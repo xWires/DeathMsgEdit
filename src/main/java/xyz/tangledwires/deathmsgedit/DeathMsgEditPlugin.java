@@ -1,18 +1,17 @@
 package xyz.tangledwires.deathmsgedit;
 
 import org.bstats.bukkit.Metrics;
-
-// import java.util.ArrayList;
+import org.bukkit.Bukkit;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-// import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import net.md_5.bungee.api.ChatColor;
 import xyz.tangledwires.deathmsgedit.events.ChangeDeathMessage;
 
 public class DeathMsgEditPlugin extends JavaPlugin {
+    public boolean placeholderApiEnabled = false;
     @Override
     public void onEnable() {
         int pluginId = 21523;
@@ -20,12 +19,19 @@ public class DeathMsgEditPlugin extends JavaPlugin {
 		Metrics metrics = new Metrics(this, pluginId);
 
         this.saveDefaultConfig();
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            getLogger().info("PlaceholderAPI found! Enabling placeholders.");
+            placeholderApiEnabled = true;
+        }
+        else {
+            getLogger().warning("PlaceholderAPI not found! Placeholders will not work in death messages!");
+        }
         getServer().getPluginManager().registerEvents(new ChangeDeathMessage(), this);
-        getLogger().info("Hello, SpigotMC!");
+        getLogger().info("Enabled DeathMsgEdit");
     }
     @Override
     public void onDisable() {
-        getLogger().info("See you again, SpigotMC!");
+        getLogger().info("Disabled DeathMsgEdit");
     }
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {

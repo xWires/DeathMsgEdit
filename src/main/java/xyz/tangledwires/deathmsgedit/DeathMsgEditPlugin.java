@@ -15,13 +15,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import net.md_5.bungee.api.ChatColor;
 
 import xyz.tangledwires.deathmsgedit.events.ChangeDeathMessage;
-import xyz.tangledwires.deathmsgedit.events.UpdateNotifier;
 
 public class DeathMsgEditPlugin extends JavaPlugin {
     public boolean placeholderApiEnabled = false;
-    public String version = getDescription().getVersion();
-	public String latestVersion;
-	public boolean isOutdated = false;
     @Override
     public void onEnable() {
         int pluginId = 21523;
@@ -37,28 +33,6 @@ public class DeathMsgEditPlugin extends JavaPlugin {
             getLogger().warning("PlaceholderAPI not found! Placeholders will not work in death messages!");
         }
         getServer().getPluginManager().registerEvents(new ChangeDeathMessage(), this);
-        getServer().getPluginManager().registerEvents(new UpdateNotifier(), this);
-        /*
-		 * This checks whether the plugin is up to date.
-		 * The URL below returns the latest build number from Jenkins.
-		 * 
-		 * It gets the latest build number and compares it with the version string of this instance of DeathMsgEdit.
-		 */
-		HttpClient httpClient = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://ci.tangledwires.xyz/job/DeathMsgEdit/lastSuccessfulBuild/buildNumber"))
-                .GET()
-                .build();
-		try {
-			HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-			int newestVersion = Integer.parseInt(response.body());
-			latestVersion = Integer.toString(newestVersion);
-			if (newestVersion > Integer.parseInt(getDescription().getVersion())) {
-				isOutdated = true;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
         getLogger().info("Enabled DeathMsgEdit");
     }
     @Override
